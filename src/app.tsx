@@ -30,13 +30,13 @@ export const App = () => {
   };
 
   const formatURL = () => {
-    const base = window.location.origin;
+    const base = window.location.href;
     const bars = [...progressBars].sort((a, b) => (a > b ? 1 : -1)).join(",");
     const params = [`bars=${bars}`];
     if (bars.includes("1") && weekStart === 1) {
       params.push(`ws=${weekStart}`);
     }
-    const url = `${base}/progress?${params.join("&")}`;
+    const url = `${base}progress?${params.join("&")}`;
     setUrl(url);
   };
 
@@ -67,7 +67,7 @@ export const App = () => {
         <div class="flex flex-row gap-x-10 w-fit items-center">
           <div class="flex flex-col gap-y-6">
             <form id="progress-form" className="flex flex-col gap-y-2 h-[136px]">
-              <div className="w-[450px]">
+              <div className="w-[485px]">
                 <label class="block text-base font-medium text-[#07074D]">Progress Bars</label>
                 <div className="flex items-center space-x-6">
                   <CheckboxInput
